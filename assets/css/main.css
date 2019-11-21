@@ -3972,3 +3972,7 @@ input, select, textarea {
 		.col-3 {
 			text-align: center;
 		}
+
+		.name {
+			font-weight:bold;
+		}
