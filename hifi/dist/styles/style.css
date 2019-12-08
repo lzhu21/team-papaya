@@ -262,9 +262,20 @@ img {
 }
 
 #design {
-  width: 500px;
+  width: 405px;
   background-image: url('');
   background-blend-mode: multiply;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#userUpload {
+  position: relative;
+  margin: auto;
+  height: 600px;
+  margin-top: 0;
 }
 
 #backbutton {
