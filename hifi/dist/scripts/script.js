@@ -182,9 +182,13 @@ function showImage(input) {
             $('#pic')
                 .attr('src', e.target.result)
                 .width(150);
+            sessionStorage.setItem("currStoredPhoto", e.target.result);
+
+
         };
 
         reader.readAsDataURL(input.files[0]);
+
     }
 }
 
@@ -309,8 +313,10 @@ function transferTakenPhoto() {
 
 function transferStoredPhoto() {
   // This ideally transfer pic back to tshirt.html
-  // finalImage = pic
+  sessionStorage.setItem("userImage", sessionStorage.getItem("currStoredPhoto"));
 }
 
 var userImageData = sessionStorage.getItem("userImage");
-userUpload.src = userImageData;
+if(document.getElementById("userUpload") != null) {
+  userUpload.src = userImageData;
+}
