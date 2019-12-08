@@ -47,6 +47,7 @@ input[type=text]:focus {
 
 #flipButton {
   font-size: 20px;
+  margin-top: 40px;
 }
 
 .contentbase {
@@ -265,14 +266,17 @@ img {
   width: 405px;
   background-image: url('');
   background-blend-mode: multiply;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #userUpload {
-  position: absolute;
-  left: 50%;
-  top: 35%;
-  transform: translate(-50%, -50%);
-  width: 150px;
+  position: relative;
+  margin: auto;
+  height: 600px;
+  margin-top: 0;
 }
 
 #backbutton {
