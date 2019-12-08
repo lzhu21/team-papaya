@@ -90,31 +90,33 @@ function save() {
 
 // called every session to retrieve saved design
 var designName = sessionStorage.getItem("designName");
-document.getElementById("designName").value = designName;
-console.log("Retrieved Neck: " + sessionStorage.getItem("neckNum"));
-console.log("Retrieved Sleeve: " + sessionStorage.getItem("sleeveNum"));
-console.log("Retrieved Waist: " + sessionStorage.getItem("waistNum"));
-var total = neckNum + sleeveNum + waistNum;
-document.getElementById('design').src = neckDesigns[total];
-console.log("Retrieved Design: " + total);
+if(document.getElementById("designName") != null) {
+  document.getElementById("designName").value = designName;
+  console.log("Retrieved Neck: " + sessionStorage.getItem("neckNum"));
+  console.log("Retrieved Sleeve: " + sessionStorage.getItem("sleeveNum"));
+  console.log("Retrieved Waist: " + sessionStorage.getItem("waistNum"));
+  var total = neckNum + sleeveNum + waistNum;
+  document.getElementById('design').src = neckDesigns[total];
+  console.log("Retrieved Design: " + total);
 
-var colorSelected = sessionStorage.getItem("colorChosen") != null ? "#" + sessionStorage.getItem("colorChosen") : "#ffffff";
+  var colorSelected = sessionStorage.getItem("colorChosen") != null ? "#" + sessionStorage.getItem("colorChosen") : "#ffffff";
 
-console.log("Retrieved Color: " + colorSelected);
+  console.log("Retrieved Color: " + colorSelected);
 
-document.getElementById("bgcolor").value = colorSelected;
-document.getElementById("background").style.backgroundColor = colorSelected != null ? colorSelected : "ffffff";
-$(".left1").css("background-color", colorSelected);
-$(".left2").css("background-color", colorSelected);
-$(".left3").css("background-color", colorSelected);
+  document.getElementById("bgcolor").value = colorSelected;
+  document.getElementById("background").style.backgroundColor = colorSelected != null ? colorSelected : "ffffff";
+  $(".left1").css("background-color", colorSelected);
+  $(".left2").css("background-color", colorSelected);
+  $(".left3").css("background-color", colorSelected);
 
 
-console.log("Retrieved texture: " + textureNum);
-var textureSelected = sessionStorage.getItem("textureChosen") != null ? sessionStorage.getItem("textureChosen") : 0;
-console.log(textureSelected);
-console.log(textureDesigns[textureSelected]);
-document.getElementById('design').style.backgroundImage = textureDesigns[textureSelected];
-$(".squareShape").css("background-image", textureDesigns[textureSelected]);
+  console.log("Retrieved texture: " + textureNum);
+  var textureSelected = sessionStorage.getItem("textureChosen") != null ? sessionStorage.getItem("textureChosen") : 0;
+  console.log(textureSelected);
+  console.log(textureDesigns[textureSelected]);
+  document.getElementById('design').style.backgroundImage = textureDesigns[textureSelected];
+  $(".squareShape").css("background-image", textureDesigns[textureSelected]);
+}
 
 
 
@@ -164,3 +166,151 @@ function changeColor(button) {
     document.getElementById(button).style.color = 'gray';
   }
 }
+
+
+
+
+
+
+
+
+function showImage(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#pic')
+                .attr('src', e.target.result)
+                .width(150);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+(function() {
+  // The width and height of the captured photo. We will set the
+  // width to the value defined here, but the height will be
+  // calculated based on the aspect ratio of the input stream.
+
+  var width = 320;    // We will scale the photo width to this
+  var height = 0;     // This will be computed based on the input stream
+
+  // |streaming| indicates whether or not we're currently streaming
+  // video from the camera. Obviously, we start at false.
+
+  var streaming = false;
+
+  // The various HTML elements we need to configure or control. These
+  // will be set by the startup() function.
+
+  var video = null;
+  var canvas = null;
+  var photo = null;
+  var startbutton = null;
+
+  function startup() {
+    video = document.getElementById('video');
+    canvas = document.getElementById('canvas');
+    photo = document.getElementById('photo');
+    startbutton = document.getElementById('startbutton');
+
+    if(video != null) {
+      navigator.mediaDevices.getUserMedia({video: true, audio: false})
+      .then(function(stream) {
+        video.srcObject = stream;
+        video.play();
+      })
+      .catch(function(err) {
+        console.log("An error occurred: " + err);
+      });
+
+      video.addEventListener('canplay', function(ev){
+        if (!streaming) {
+          height = video.videoHeight / (video.videoWidth/width);
+
+          // Firefox currently has a bug where the height can't be read from
+          // the video, so we will make assumptions if this happens.
+
+          if (isNaN(height)) {
+            height = width / (4/3);
+          }
+
+          video.setAttribute('width', width);
+          video.setAttribute('height', height);
+          canvas.setAttribute('width', width);
+          canvas.setAttribute('height', height);
+          streaming = true;
+        }
+      }, false);
+
+
+      startbutton.addEventListener('click', function(ev){
+        takepicture();
+        ev.preventDefault();
+      }, false);
+
+      clearphoto();
+    }
+  }
+
+  // Fill the photo with an indication that none has been
+  // captured.
+
+  function clearphoto() {
+    var context = canvas.getContext('2d');
+    context.fillStyle = "#AAA";
+    context.fillRect(0, 0, canvas.width, canvas.height);
+
+    var data = canvas.toDataURL('image/png');
+    photo.setAttribute('src', data);
+  }
+
+  // Capture a photo by fetching the current contents of the video
+  // and drawing it into a canvas, then converting that to a PNG
+  // format data URL. By drawing it on an offscreen canvas and then
+  // drawing that to the screen, we can change its size and/or apply
+  // other changes before drawing it.
+
+  function takepicture() {
+    var context = canvas.getContext('2d');
+    if (width && height) {
+      canvas.width = width;
+      canvas.height = height;
+      context.drawImage(video, 0, 0, width, height);
+
+      var data = canvas.toDataURL('image/png');
+      photo.setAttribute('src', data);
+    } else {
+      clearphoto();
+    }
+  }
+
+  // Set up our event listener to run the startup process
+  // once loading is complete.
+  window.addEventListener('load', startup, false);
+})();
+
+function transferTakenPhoto() {
+  // This ideally transfer photo back to tshirt.html
+  // document.getElementById('finalImage').setAttribute('src', canvas.toDataURL('image/png'));
+  var context = canvas.getContext('2d');
+  var width = 300
+  var height = 200
+  canvas.width = width;
+  canvas.height = height;
+  context.drawImage(video, 0, 0, width, height);
+
+  var data = canvas.toDataURL('image/png');
+  returnImage.setAttribute('src', data);
+
+  sessionStorage.setItem("userImage", data);
+}
+
+function transferStoredPhoto() {
+  // This ideally transfer pic back to tshirt.html
+  // finalImage = pic
+}
+
+var userImageData = sessionStorage.getItem("userImage");
+userUpload.src = userImageData;
