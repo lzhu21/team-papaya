@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Final Design Page</title>
+  <link rel="stylesheet" href="./style.css">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Design</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.0.4/jscolor.min.js"></script>
+  <script src="https://kit.fontawesome.com/627e09cffe.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <div class="header">
+    <a href="../portfolio.html"><i id="backbutton" class="fas fa-times"></i></a>
+    <input id="designName" placeholder="ENTER TITLE OF DESIGN" type="text" name="fname" autocomplete="off"><br>
+  </div>
+
+  <div class="main">
+    <div class="right">
+
+      <button onclick="undo()"><i id="change2" class="fas fa-undo"></i></button>
+        <button onclick="redo()"><i id="change2" class="fas fa-redo"></i></button>
+
+      <div class="color">
+        COLOR: <br><input style="width:100px;" class="jscolor {width:243, height:150, position:'right',
+      borderColor:'#FFF', insetColor:'#FFF', backgroundColor:'#FFF'}" id="bgcolor" name="bgcolor" value="ffffff" /><br>
+      </div>
+
+      <div class="texture">
+        TEXTURE:<br>
+        <button id="txtbut" onclick="changeTexture('plain')">None</button>
+        <button id="txtbut" onclick="changeTexture('fabric')">Fabric</button>
+        <button id="txtbut" onclick="changeTexture('waves')">Waves</button>
+        <button id="txtbut" onclick="changeTexture('spotty')">Bubbles</button>
+      </div>
+
+      <a href="./upload.html"><div id="upload">Upload Element</div></a>
+
+    </div>
+
+    <div class="left">
+
+      <div class="left1">
+        <img class="squareShape" src="https://cdn.discordapp.com/attachments/508801763349102596/652444733628481536/testing4.png" alt="neckline"><br>
+        <button id="leftButton1" onclick="changeShape('neck')">CHANGE NECKLINE</button>
+      </div>
+
+      <div class="left2">
+        <img class="squareShape" src="https://cdn.discordapp.com/attachments/508801763349102596/652444729413337088/testing2.png" alt="sleeve"><br>
+        <button id="leftButton2" onclick="changeShape('sleeve')">CHANGE SLEEVE</button>
+      </div>
+
+      <div class="left3">
+        <img class="squareShape" src="https://cdn.discordapp.com/attachments/508801763349102596/652444731426603028/testing3.png" alt="waist"><br>
+         <button id="leftButton3" onclick="changeShape('waist')">CHANGE WAIST</button>
+      </div>
+
+    </div>
+
+    <div class="content">
+      <div id="background" class="background">
+        <img id="design" src="https://cdn.discordapp.com/attachments/508801763349102596/651927108020469762/testing.png">
+      </div>
+       <div class="contentbase">
+        <button id="flipButton" onclick="flipDesign()"><i id="change2" class="fas fa-caret-left"></i></button></button> <p1 id="flipped">FLIP</p1>
+        <button id="flipButton" onclick="flipDesign()"><i id="change2" class="fas fa-caret-right"></i><//button></button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class = "footer">
+    <button id="footerButton" onclick="save()"><i id="footerIcon" class="far fa-save"></i></button>
+
+    <button id="shareButton"><i id="footerIcon" class="fas fa-share-alt"></i></button>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h1 align="center" style="color:#32cd32">Share Your Design:</h1>
+        <div class="SMButtonGroup" id="SMButtonGroup" align="center">
+          <button><i id="linkedinIcon" class="fab fa-linkedin" onclick="changeColor('linkedinIcon')"></i></button>
+          <button><i id="facebookIcon" class="fab fa-facebook-square" onclick="changeColor('facebookIcon')"></i></button>
+          <button><i id="instagramIcon" class="fab fa-instagram" onclick="changeColor('instagramIcon')"></i></button>
+          <button><i id="pinterestIcon" class="fab fa-pinterest-square" onclick="changeColor('pinterestIcon')"></i></button>
+        </div>
+        <br>
+        <br>
+        <form align="center">
+          Enter Your Message:<br> <br>
+          <textarea id="shareMessageBox" type="text" size="60" style="height:100px"></textarea>
+        </form>
+        <button id="submitMessage" align="center" onclick="sendMessageIndicator()">Submit</button>
+      </div>
+    </div>
+
+    <button id="footerButton" onclick="tutorial()"><i id="footerIcon" class="far fa-question-circle"></i></button>
+  </div>
+  <script src="scripts/script.js"></script>
+
+</body>
+</html>

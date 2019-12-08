@@ -1,0 +1,54 @@
+body {
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  background: black url("https://cdn.discordapp.com/attachments/508801763349102596/647512324047110144/1.png")center center fixed; 
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+}
+
+p {
+  color: white;
+  font-size: 80px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.content {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+button:focus {
+  outline: 0;
+}
+
+button {
+  background: none;
+  border: none;
+}
+
+.fa-circle {
+  color: white;
+  font-size: 30px;
+  opacity: 0.25;
+  cursor: pointer;
+}
+
+.fa-star {
+  color: white;
+  font-size: 30px;
+  opacity: 0.25;
+  cursor: pointer;
+}
+
+#base {
+  margin-top: 250px;
+}
+
+p3 {
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  margin-left: 10px;
+}

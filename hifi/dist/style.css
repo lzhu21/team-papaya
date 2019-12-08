@@ -1,0 +1,289 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+}
+
+.header {
+  height: 100px;
+  background-color: #eee;
+  z-index: 100;
+}
+
+#designName {
+  height: 100%;
+  font-size: 40px;
+  font-weight: bold;
+  background-color: rgba(0,0,0,0);
+  border: none;
+  padding-left: 50px;
+}
+
+button:focus {
+  outline: 0;
+}
+
+input[type=text]:focus {
+  outline: 0;
+}
+
+.main {
+  margin-top: 20px;
+}
+
+.content {
+  margin: auto;
+  width: 30%;
+  margin-top: 10px;
+  text-align: center;
+}
+
+#background {
+  height: 450px;
+  width: 375px;
+  margin: auto;
+  background-color: #ffffff;
+}
+
+#flipButton {
+  font-size: 20px;
+}
+
+.contentbase {
+  font-size: 20px;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.right {
+  float: right;
+  width: 35%;
+  font-weight: bold;
+}
+
+#bgcolor {
+  border-width: 2px;
+  border-style: solid;
+  border-color: #ddd;
+}
+
+.color {
+  margin-bottom: 10px;
+}
+
+.texture {
+  margin-bottom: 10px;
+}
+
+#txtbut {
+  background-color: #eee;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+#upload {
+  font-size: 20px;
+  background-color: #eee;
+  padding: 5px 10px;
+  border-radius: 8px;
+  width: 155px;
+}
+
+.left {
+  float: left;
+  margin-left: 25%;
+}
+
+.squareShape {
+  height: 130px;
+  background-image: url('');
+  background-blend-mode: multiply;
+}
+
+.left1, .left2, .left3 {
+  width: 130px;
+  height: 130px;
+  margin-bottom: 10px;
+  transition: 0.3s;
+}
+
+.left1:hover, .left2:hover, .left3:hover {
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.left1:hover #leftButton1 {
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.left2:hover #leftButton2 {
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.left3:hover #leftButton3 {
+  opacity: 1;
+  transition: 0.3s;
+}
+
+#leftButton1, #leftButton2, #leftButton3 {
+  background: none;
+  background-color: #eee;
+  border: none;
+  z-index: 30;
+  position: relative;
+  top: -75px;
+  border: none;
+  cursor: pointer;
+  opacity:0;
+  transition: 0.3s;
+  text-align: center;
+  width: 100%;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: right;
+}
+
+#footerIcon {
+  font-size: 30px;
+  opacity: 0.5;
+  transition: 0.3s;
+}
+
+#footerIcon:hover {
+  opacity: 1;
+  transition: 0.3s;
+}
+
+#footerButton {
+  background: none;
+  border: none;
+  margin-right: 10px;
+  margin-bottom: 25px;
+  cursor: pointer;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+#linkedinIcon{
+  font-size: 30px;
+  padding: 5px;
+  color: gray;
+}
+
+#facebookIcon{
+  font-size: 30px;
+  padding: 5px;
+  color: gray;
+}
+
+#instagramIcon{
+  font-size: 30px;
+  padding: 5px;
+  color: gray;
+}
+
+#pinterestIcon{
+  font-size: 30px;
+  padding: 5px;
+  color: gray;
+}
+
+#footerIcon {
+  font-size: 30px;
+}
+
+#footerButton {
+  background: none;
+  border: none;
+  margin-right: 10px;
+  margin-bottom: 25px;
+}
+
+
+#shareButton {
+  background: none;
+  border: none;
+  margin-right: 10px;
+  margin-bottom: 25px;
+}
+
+#design {
+  width: 500px;
+  background-image: url('');
+  background-blend-mode: multiply;
+}
+
+#backbutton {
+  float: right;
+  font-size: 40px;
+  margin-top: 30px;
+  margin-right: 40px;
+  color: black;
+}
+
+#change2 {
+  background-color: #eee;
+  padding: 5px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  border-radius: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}

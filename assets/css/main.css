@@ -201,7 +201,7 @@ input, select, textarea {
 	}
 
 	h3 {
-		font-size: 1.35em;
+		font-size: 1.75em;
 	}
 
 	h4 {
@@ -3394,7 +3394,7 @@ input, select, textarea {
 		-webkit-align-items: center;
 		-ms-align-items: center;
 		align-items: center;
-		background-image: url("../../images/banner.jpg");
+		background-image: url("https://cdn.discordapp.com/attachments/508801763349102596/647308312634720273/image_18.png");
 		display: -moz-flex;
 		display: -webkit-flex;
 		display: -ms-flex;
@@ -3429,7 +3429,7 @@ input, select, textarea {
 			display: block;
 			height: 100%;
 			left: 0;
-			opacity: 0.85;
+			opacity: 0.45;
 			position: absolute;
 			top: 0;
 			width: 100%;
@@ -3975,4 +3975,9 @@ input, select, textarea {
 
 		.name {
 			font-weight:bold;
+		}
+
+		.newcont {
+			margin: auto;
+  		width: 50%;
 		}
